@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fashion Deals Hub</title>
+  <style>
+    :root{
+      --primary:#8b2be2;    /* violet */
+      --accent:#ff6fb5;     /* pink */
+      --bg1:#fff7fb;
+      --bg2:#f3f0ff;
+      --card:#ffffff;
+      --muted:#6b7280;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    header{
+      background: linear-gradient(90deg,var(--primary),var(--accent));
+      color:white;
+      padding:28px 18px;
+      text-align:center;
+      font-size:26px;
+      font-weight:700;
+      box-shadow:0 8px 30px rgba(139,43,226,0.18);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    .sub{
+      text-align:center;
+      color:var(--muted);
+      padding:10px 18px 22px;
+      font-size:14px;
+    }
+
+    .grid-wrap{
+      width:95%;
+      max-width:1200px;
+      margin:18px auto 48px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0 14px;
+    }
+
+    td{
+      background:var(--card);
+      border-radius:12px;
+      padding:18px;
+      vertical-align:middle;
+      text-align:center;
+      box-shadow:0 6px 18px rgba(15,23,36,0.06);
+      transition:transform .22s ease, box-shadow .22s ease;
+    }
+    td:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(139,43,226,0.12);
+    }
+
+    a.card-link{
+      color:inherit;
+      text-decoration:none;
+      display:block;
+      align-items:center;
+      justify-content:center;
+    }
+
+    img.logo{
+      display:block;
+      margin:0 auto 10px;
+      max-width:120px;
+      max-height:70px;
+      object-fit:contain;
+      filter: drop-shadow(0 6px 18px rgba(139,43,226,0.06));
+    }
+
+    .name{
+      font-weight:700;
+      font-size:15px;
+      color:#071029;
+      line-height:1.2;
+    }
+
+    .note{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      margin-top:8px;
+    }
+
+    footer{
+      background:var(--primary);
+      color:white;
+      text-align:center;
+      padding:18px 12px;
+      font-size:13px;
+    }
+
+    /* Responsive: stack to single column on small screens */
+    @media (max-width:720px){
+      table, tbody, tr, td { display:block; width:100%; }
+      tr { margin-bottom:12px; }
+      td { margin: 10px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>👗 Fashion Deals Hub</header>
+  <div class="sub">Tap a logo or name to open the deal — logos are placeholders (put your images in <code>logos/</code>)</div>
+
+  <div class="grid-wrap">
+    <table>
+
+      <!-- Row 1 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/2axQ2d2" target="_blank" rel="noopener">
+            <img class="logo" src="logos/amazon.png" alt="AMAZON">
+            <div class="name">AMAZON</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://fktr.in/P1OILdG" target="_blank" rel="noopener">
+            <img class="logo" src="logos/flipkart.png" alt="FLIPKART">
+            <div class="name">FLIPKART</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 2 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/ZMA7s0a" target="_blank" rel="noopener">
+            <img class="logo" src="logos/tata-cliq.png" alt="TATA CLIQ">
+            <div class="name">TATA CLIQ</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/B25s7vs" target="_blank" rel="noopener">
+            <img class="logo" src="logos/jiomart.png" alt="JIOMART">
+            <div class="name">JIOMART</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 3 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://myntr.it/5bUx4St" target="_blank" rel="noopener">
+            <img class="logo" src="logos/myntra.png" alt="MYNTRA">
+            <div class="name">MYNTRA</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://ajiio.in/kiJlaGJ" target="_blank" rel="noopener">
+            <img class="logo" src="logos/ajio.png" alt="AJIO">
+            <div class="name">AJIO</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 4 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/uonA21W" target="_blank" rel="noopener">
+            <img class="logo" src="logos/buykaro.png" alt="BUYKARO">
+            <div class="name">BUYKARO</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/EH2rd8D" target="_blank" rel="noopener">
+            <img class="logo" src="logos/shopclues.png" alt="SHOPCLUES">
+            <div class="name">SHOPCLUES</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 5 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/gB2j4oo" target="_blank" rel="noopener">
+            <img class="logo" src="logos/zop.png" alt="ZOP">
+            <div class="name">ZOP</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/yLXaePy" target="_blank" rel="noopener">
+            <img class="logo" src="logos/nike.png" alt="NIKE">
+            <div class="name">NIKE</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 6 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/i6btv73" target="_blank" rel="noopener">
+            <img class="logo" src="logos/evok.png" alt="EVOK">
+            <div class="name">EVOK</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/9yH3cls" target="_blank" rel="noopener">
+            <img class="logo" src="logos/puma.png" alt="PUMA">
+            <div class="name">PUMA</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 7 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/0E6gHsI" target="_blank" rel="noopener">
+            <img class="logo" src="logos/uniqlo.png" alt="UNIQLO">
+            <div class="name">UNIQLO</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/oukDvzn" target="_blank" rel="noopener">
+            <img class="logo" src="logos/ceazur.png" alt="CEAZUR">
+            <div class="name">CEAZUR</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 8 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/n7Qvvp3" target="_blank" rel="noopener">
+            <img class="logo" src="logos/ajiogram.png" alt="AJIOGRAM">
+            <div class="name">AJIOGRAM</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/I84P3at" target="_blank" rel="noopener">
+            <img class="logo" src="logos/mocobara.png" alt="MOCOBARA">
+            <div class="name">MOCOBARA</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 9 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/D5iDfPC" target="_blank" rel="noopener">
+            <img class="logo" src="logos/firstcry.png" alt="FIRSTCRY">
+            <div class="name">FIRSTCRY</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/FM805MA" target="_blank" rel="noopener">
+            <img class="logo" src="logos/xyxx.png" alt="XYXX">
+            <div class="name">XYXX</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 10 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/Cpl08S4" target="_blank" rel="noopener">
+            <img class="logo" src="logos/shyway.png" alt="SHYWAY">
+            <div class="name">SHYWAY</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/ojwWf7b" target="_blank" rel="noopener">
+            <img class="logo" src="logos/sonata.png" alt="SONATA">
+            <div class="name">SONATA</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 11 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/SBKyYRe" target="_blank" rel="noopener">
+            <img class="logo" src="logos/fastrack.png" alt="FASTRACK">
+            <div class="name">FASTRACK</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/6Tu19r0" target="_blank" rel="noopener">
+            <img class="logo" src="logos/tiaraa.png" alt="TIARAA">
+            <div class="name">TIARAA</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 12 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/PJ1jRbL" target="_blank" rel="noopener">
+            <img class="logo" src="logos/timex.png" alt="TIMEX">
+            <div class="name">TIMEX</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/9Ush0FT" target="_blank" rel="noopener">
+            <img class="logo" src="logos/xxlife.png" alt="XXLIFE">
+            <div class="name">XXLIFE</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 13 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/cHznG4e" target="_blank" rel="noopener">
+            <img class="logo" src="logos/clovia.png" alt="CLOVIA">
+            <div class="name">CLOVIA</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/fwmZuKk" target="_blank" rel="noopener">
+            <img class="logo" src="logos/house-of-coala.png" alt="HOUSE OF COALA">
+            <div class="name">HOUSE OF COALA</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 14 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/Zb35bQh" target="_blank" rel="noopener">
+            <img class="logo" src="logos/biba.png" alt="BIBA">
+            <div class="name">BIBA</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/OpHbnVV" target="_blank" rel="noopener">
+            <img class="logo" src="logos/oyela.png" alt="OYELA">
+            <div class="name">OYELA</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 15 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/drYXog0" target="_blank" rel="noopener">
+            <img class="logo" src="logos/salty.png" alt="SALTY">
+            <div class="name">SALTY</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/8CFt62f" target="_blank" rel="noopener">
+            <img class="logo" src="logos/bagline.png" alt="BAGLINE">
+            <div class="name">BAGLINE</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 16 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/ZkjqXO7" target="_blank" rel="noopener">
+            <img class="logo" src="logos/blackberrys-store.png" alt="BLACKBERRY'S STORE">
+            <div class="name">BLACKBERRY'S STORE</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/cgcmSio" target="_blank" rel="noopener">
+            <img class="logo" src="logos/goeye.png" alt="GOEYE">
+            <div class="name">GOEYE</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 17 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/jyfpqkO" target="_blank" rel="noopener">
+            <img class="logo" src="logos/the-luxury-closet.png" alt="THE LUXURY CLOSET">
+            <div class="name">THE LUXURY CLOSET</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/6Lsqb8n" target="_blank" rel="noopener">
+            <img class="logo" src="logos/bummer.png" alt="BUMMER">
+            <div class="name">BUMMER</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 18 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/AuQ19Rd" target="_blank" rel="noopener">
+            <img class="logo" src="logos/loophoop.png" alt="LOOPHOOP">
+            <div class="name">LOOPHOOP</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/mzz3NRz" target="_blank" rel="noopener">
+            <img class="logo" src="logos/interwove.png" alt="INTERWOVE">
+            <div class="name">INTERWOVE</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 19 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/etkdkCB" target="_blank" rel="noopener">
+            <img class="logo" src="logos/libas.png" alt="LIBAS">
+            <div class="name">LIBAS</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/8dWYuvW" target="_blank" rel="noopener">
+            <img class="logo" src="logos/voyage-store.png" alt="VOYAGE STORE">
+            <div class="name">VOYAGE STORE</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 20 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/i33Omts" target="_blank" rel="noopener">
+            <img class="logo" src="logos/soulively.png" alt="SOULIVELY">
+            <div class="name">SOULIVELY</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/coRH9Re" target="_blank" rel="noopener">
+            <img class="logo" src="logos/neemans.png" alt="NEEMAN'S">
+            <div class="name">NEEMAN'S</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 21 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/OYuKan6" target="_blank" rel="noopener">
+            <img class="logo" src="logos/bewakoof.png" alt="BEWAKOOF.COM">
+            <div class="name">BEWAKOOF.COM</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/rQUwjKF" target="_blank" rel="noopener">
+            <img class="logo" src="logos/wanderlooms.png" alt="WANDERLOOMS">
+            <div class="name">WANDERLOOMS</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 22 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/3cV3So3" target="_blank" rel="noopener">
+            <img class="logo" src="logos/rigo.png" alt="RIGO">
+            <div class="name">RIGO</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/UvtjvsH" target="_blank" rel="noopener">
+            <img class="logo" src="logos/strch.png" alt="STRCH">
+            <div class="name">STRCH</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 23 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/mH07xjk" target="_blank" rel="noopener">
+            <img class="logo" src="logos/converse.png" alt="CONVERSE">
+            <div class="name">CONVERSE</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/eTfTe5S" target="_blank" rel="noopener">
+            <img class="logo" src="logos/decathlon.png" alt="DECATHLON">
+            <div class="name">DECATHLON</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 24 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/NA4Com7" target="_blank" rel="noopener">
+            <img class="logo" src="logos/shein.png" alt="SHEIN">
+            <div class="name">SHEIN</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://bitli.in/a5SKBTV" target="_blank" rel="noopener">
+            <img class="logo" src="logos/beyoung.png" alt="BEYOUNG">
+            <div class="name">BEYOUNG</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 25 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://bitli.in/gwhnuVY" target="_blank" rel="noopener">
+            <img class="logo" src="logos/kimti.png" alt="KIMTI">
+            <div class="name">KIMTI</div>
+          </a>
+        </td>
+        <td>
+          <div style="opacity:.6;font-size:13px">—</div>
+        </td>
+      </tr>
+
+      <!-- Separator / Second batch header -->
+      <tr>
+        <td colspan="2" style="text-align:center;background:linear-gradient(90deg,#fff,#fff);box-shadow:none;padding:6px 0;">
+          <div style="font-weight:800;color:#4b2b7f">More Fashion Deals & Marketplaces</div>
+        </td>
+      </tr>
+
+      <!-- Row 26 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://msho.in/iQgiov" target="_blank" rel="noopener">
+            <img class="logo" src="logos/meesho.png" alt="MEESHO">
+            <div class="name">MEESHO</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/7xG9TO" target="_blank" rel="noopener">
+            <img class="logo" src="logos/savana.png" alt="SAVANA">
+            <div class="name">SAVANA</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 27 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/vhy649" target="_blank" rel="noopener">
+            <img class="logo" src="logos/shopsy.png" alt="SHOPSY">
+            <div class="name">SHOPSY</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/89V0Yd" target="_blank" rel="noopener">
+            <img class="logo" src="logos/reliance-digital.png" alt="RELIANCE DIGITAL">
+            <div class="name">RELIANCE DIGITAL</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 28 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/qMWCXp" target="_blank" rel="noopener">
+            <img class="logo" src="logos/adidas.png" alt="ADIDAS">
+            <div class="name">ADIDAS</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/6I15Bs" target="_blank" rel="noopener">
+            <img class="logo" src="logos/nykaa-fashion.png" alt="NYKAA FASHION">
+            <div class="name">NYKAA FASHION</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 29 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/FZTSxW" target="_blank" rel="noopener">
+            <img class="logo" src="logos/tanishq.png" alt="TANISHQ">
+            <div class="name">TANISHQ</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/jMHoxs" target="_blank" rel="noopener">
+            <img class="logo" src="logos/titan-eyeplus.png" alt="TITAN EYEPLUS">
+            <div class="name">TITAN EYEPLUS</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 30 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/BBpcaJ" target="_blank" rel="noopener">
+            <img class="logo" src="logos/titan-skin.png" alt="TITAN SKIN">
+            <div class="name">TITAN SKIN</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/5Qae8I" target="_blank" rel="noopener">
+            <img class="logo" src="logos/xyxx-2.png" alt="XYXX 2">
+            <div class="name">XYXX 2</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 31 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/H7r8vQ" target="_blank" rel="noopener">
+            <img class="logo" src="logos/the-urban-nestco.png" alt="THE URBAN NESTCO">
+            <div class="name">THE URBAN NESTCO</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/Rr4KEF" target="_blank" rel="noopener">
+            <img class="logo" src="logos/khadi-natural.png" alt="KHADI NATURAL">
+            <div class="name">KHADI NATURAL</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 32 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/bd9wWQ" target="_blank" rel="noopener">
+            <img class="logo" src="logos/swiss-beauty.png" alt="SWISS BEAUTY">
+            <div class="name">SWISS BEAUTY</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/XiDHTS" target="_blank" rel="noopener">
+            <img class="logo" src="logos/forest-essentials.png" alt="FOREST ESSENTIALS">
+            <div class="name">FOREST ESSENTIALS</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 33 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/9PpTg9" target="_blank" rel="noopener">
+            <img class="logo" src="logos/levis.png" alt="LEVIS">
+            <div class="name">LEVIS</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/SwglGS" target="_blank" rel="noopener">
+            <img class="logo" src="logos/the-bear-house.png" alt="THE BEAR HOUSE">
+            <div class="name">THE BEAR HOUSE</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 34 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/8pJ8cp" target="_blank" rel="noopener">
+            <img class="logo" src="logos/daniel-wellington.png" alt="DANIEL WELLINGTON">
+            <div class="name">DANIEL WELLINGTON</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/GmpB0d" target="_blank" rel="noopener">
+            <img class="logo" src="logos/pepperfry.png" alt="PEPPERFRY">
+            <div class="name">PEPPERFRY</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 35 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/gdzDvS" target="_blank" rel="noopener">
+            <img class="logo" src="logos/fnp.png" alt="FNP">
+            <div class="name">FNP</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/pda4KL" target="_blank" rel="noopener">
+            <img class="logo" src="logos/igp.png" alt="IGP">
+            <div class="name">IGP</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 36 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/18gsiy" target="_blank" rel="noopener">
+            <img class="logo" src="logos/aramya.png" alt="ARAMYA">
+            <div class="name">ARAMYA</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/rY9IeN" target="_blank" rel="noopener">
+            <img class="logo" src="logos/palmonas.png" alt="PALMONAS">
+            <div class="name">PALMONAS</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 37 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/NiXY14" target="_blank" rel="noopener">
+            <img class="logo" src="logos/libas-2.png" alt="LIBAS 2">
+            <div class="name">LIBAS 2</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/eDD0lA" target="_blank" rel="noopener">
+            <img class="logo" src="logos/loop-earplugs.png" alt="LOOP EARPLUGS">
+            <div class="name">LOOP EARPLUGS</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 38 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/YgO2Yv" target="_blank" rel="noopener">
+            <img class="logo" src="logos/bummer-2.png" alt="BUMMER 2">
+            <div class="name">BUMMER 2</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/UOtxam" target="_blank" rel="noopener">
+            <img class="logo" src="logos/bonkers-corner.png" alt="BONKERS CORNER">
+            <div class="name">BONKERS CORNER</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 39 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/WIrYlP" target="_blank" rel="noopener">
+            <img class="logo" src="logos/pepe-jeans.png" alt="PEPE JEANS">
+            <div class="name">PEPE JEANS</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/wAaebg" target="_blank" rel="noopener">
+            <img class="logo" src="logos/puma-2.png" alt="PUMA 2">
+            <div class="name">PUMA 2</div>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Row 40 -->
+      <tr>
+        <td>
+          <a class="card-link" href="https://extp.in/QAikHS" target="_blank" rel="noopener">
+            <img class="logo" src="logos/shaye.png" alt="SHAYE">
+            <div class="name">SHAYE</div>
+          </a>
+        </td>
+        <td>
+          <a class="card-link" href="https://extp.in/z8i5Xf" target="_blank" rel="noopener">
+            <img class="logo" src="logos/jaypore.png" alt="JAYPORE">
+            <div class="name">JAYPORE</div>
+          </a>
+        </td>
+      </tr>
+
+    </table>
+
+    <div class="note">Tip: place your logo images in a folder named <code>logos/</code> using the filenames shown in the <em>src</em> attributes above</div>
+  </div>
+
+  <footer>
+    Curated fashion deals • copy, paste and drop your logos into the <code>logos/</code> folder
+  </footer>
+
+</body>
+</html>
