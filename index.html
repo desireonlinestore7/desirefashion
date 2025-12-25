@@ -1,807 +1,668 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics Code — Use Same ID Across All GitHub Pages -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-069SBLM0R8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fashion Deals & Coupons — Hot Deals</title>
 
-  gtag('config', 'G-069SBLM0R8');  // SAME ID FOR ALL GITHUB SITES
+<!-- Google Analytics (keep or change ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-069SBLM0R8');
 </script>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fashion Deals Hub</title>
-  <style>
-    :root{
-      --primary:#8b2be2;    /* violet */
-      --accent:#ff6fb5;     /* pink */
-      --bg1:#fff7fb;
-      --bg2:#f3f0ff;
-      --card:#ffffff;
-      --muted:#6b7280;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(135deg,var(--bg1),var(--bg2));
-      color:#0f1724;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+<style>
+:root{
+  --accent:#7c3aed;
+  --accent-2:#ff6b6b;
+  --bg:#f6f7fb;
+  --card:#fff;
+  --muted:#666;
+  --shadow: 0 10px 30px rgba(15,15,15,0.08);
+  --radius:14px;
+}
 
-    header{
-      background: linear-gradient(90deg,var(--primary),var(--accent));
-      color:white;
-      padding:28px 18px;
-      text-align:center;
-      font-size:26px;
-      font-weight:700;
-      box-shadow:0 8px 30px rgba(139,43,226,0.18);
-      position:sticky;
-      top:0;
-      z-index:20;
-    }
-    .sub{
-      text-align:center;
-      color:var(--muted);
-      padding:10px 18px 22px;
-      font-size:14px;
-    }
+/* Base */
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#f6f7fb 0%, #eef2ff 100%);
+  color:#111;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
 
-    .grid-wrap{
-      width:95%;
-      max-width:1200px;
-      margin:18px auto 48px;
-    }
+/* Header */
+.header-wrap{
+  position:relative;
+  padding:22px 16px;
+  text-align:center;
+  background: linear-gradient(90deg,var(--accent), #5b21b6);
+  color:#fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.header-title{
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:0.2px;
+}
+.header-sub{
+  margin-top:6px;
+  font-size:13px;
+  opacity:0.95;
+}
 
-    table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0 14px;
-    }
+/* Random multi-logo banner (shows multiple logos at once) */
+.random-banner{
+  max-width:1200px;
+  margin:14px auto;
+  padding:18px;
+  border-radius:12px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+  box-shadow: 0 10px 30px rgba(15,15,15,0.06);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  position:relative;
+  overflow:hidden;
+}
+.random-inner{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  min-height:84px;
+  transition:opacity .45s ease, transform .45s ease;
+  will-change:opacity, transform;
+}
+.random-logo{
+  width:160px;
+  height:72px;
+  object-fit:contain;
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  transition:opacity .45s ease, transform .45s ease;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.06));
+}
+.random-logo.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
 
-    td{
-      background:var(--card);
-      border-radius:12px;
-      padding:18px;
-      vertical-align:middle;
-      text-align:center;
-      box-shadow:0 6px 18px rgba(15,23,36,0.06);
-      transition:transform .22s ease, box-shadow .22s ease;
-    }
-    td:hover{
-      transform:translateY(-6px);
-      box-shadow:0 18px 40px rgba(139,43,226,0.12);
-    }
+/* Controls */
+.controls{
+  max-width:1200px;
+  margin:14px auto;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:0 16px;
+  box-sizing:border-box;
+}
+.search{ flex:1 }
+.search input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(20,20,20,0.06);
+  font-size:15px;
+  box-shadow: 0 6px 18px rgba(17,24,39,0.03);
+}
 
-    a.card-link{
-      color:inherit;
-      text-decoration:none;
-      display:block;
-      align-items:center;
-      justify-content:center;
-    }
+/* Featured (static grid) */
+.featured{
+  max-width:1200px;
+  margin:8px auto;
+  padding:12px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:12px;
+  align-items:center;
+}
+.featured-card{
+  min-height:80px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+  border-radius:12px;
+  padding:10px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow);
+  transition:transform .28s ease, box-shadow .28s ease, filter .28s ease;
+  opacity:0;
+  transform:translateY(8px);
+  animation: fadeInUp .5s forwards;
+}
+@keyframes fadeInUp{
+  to{ opacity:1; transform:translateY(0) }
+}
 
-    img.logo{
-      display:block;
-      margin:0 auto 10px;
-      max-width:120px;
-      max-height:70px;
-      object-fit:contain;
-      filter: drop-shadow(0 6px 18px rgba(139,43,226,0.06));
-    }
+/* Grid */
+.grid{
+  width:95%;
+  max-width:1200px;
+  margin:18px auto 120px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
 
-    .name{
-      font-weight:700;
-      font-size:15px;
-      color:#071029;
-      line-height:1.2;
-    }
+/* Card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:14px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  transition:transform .28s ease, box-shadow .28s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:170px;
+  position:relative;
+  overflow:visible;
+}
+.card:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(15,15,15,0.12) }
 
-    .note{
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-      margin-top:8px;
-    }
+/* Ribbon for hot items */
+.ribbon{
+  position:absolute;
+  left:12px;
+  top:12px;
+  background:linear-gradient(90deg,#ffb86b,#ff6b6b);
+  color:#fff;
+  padding:6px 10px;
+  border-radius:8px;
+  font-weight:800;
+  font-size:12px;
+  box-shadow:0 6px 18px rgba(255,107,107,0.12);
+  transform:rotate(-6deg);
+}
 
-    footer{
-      background:var(--primary);
-      color:white;
-      text-align:center;
-      padding:18px 12px;
-      font-size:13px;
-    }
+/* Logo and text */
+.logo{
+  width:120px;
+  height:60px;
+  object-fit:contain;
+  margin:6px auto 8px;
+  display:block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing:antialiased;
+}
+.name{
+  font-weight:800;
+  font-size:14px;
+  margin-top:6px;
+}
+.info{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:4px;
+}
 
-    /* Responsive: stack to single column on small screens */
-    @media (max-width:720px){
-      table, tbody, tr, td { display:block; width:100%; }
-      tr { margin-bottom:12px; }
-      td { margin: 10px 0; }
-    }
-  </style>
+/* Coupon area */
+.coupon-box{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  width:100%;
+}
+.coupon-btn{
+  border:1px dashed var(--accent);
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:800;
+  color:var(--accent);
+  background:#f5f3ff;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+}
+.coupon-btn.selected{ outline:2px solid rgba(124,58,237,.12); background:#f0e9ff; }
+.copy{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:13px;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+}
+.copy[disabled], .copy[aria-disabled="true"]{ opacity:0.5; cursor:not-allowed; }
+
+/* ripple */
+.ripple{ position:absolute; border-radius:50%; transform:scale(0); background:rgba(255,255,255,0.4); animation:ripple .6s linear; pointer-events:none; }
+@keyframes ripple{ to{ transform:scale(4); opacity:0; } }
+
+/* floating CTA */
+.floating-cta{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background:linear-gradient(180deg,var(--accent), #5b21b6);
+  color:#fff;
+  padding:12px 16px;
+  border-radius:999px;
+  box-shadow:0 12px 30px rgba(92,33,182,0.18);
+  display:flex;
+  gap:10px;
+  align-items:center;
+  z-index:999;
+  cursor:pointer;
+  transform-origin:center;
+  animation: floaty 4s ease-in-out infinite;
+}
+.floating-cta .spark{ width:10px; height:10px; background: #fff; border-radius:50%; box-shadow:0 6px 18px rgba(255,255,255,0.12) }
+@keyframes floaty{ 0%{ transform:translateY(0) } 50%{ transform:translateY(-8px) } 100%{ transform:translateY(0) } }
+
+/* toast */
+.toast{
+  position:fixed;
+  bottom:86px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#111;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:8px;
+  opacity:0;
+  transition:opacity .25s, transform .25s;
+  z-index:9999;
+  pointer-events:none;
+}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(-6px); pointer-events:auto}
+
+/* no-coupon label */
+.no-coupon{
+  color:#888;
+  font-size:13px;
+  padding:6px 8px;
+  border-radius:8px;
+  background:linear-gradient(180deg,#fff,#fafafa);
+  border:1px solid rgba(0,0,0,0.03);
+}
+
+/* responsive */
+@media (max-width:520px){
+  .controls{ flex-direction:column; align-items:stretch; gap:10px; padding:0 12px }
+  .featured{ grid-template-columns:repeat(2,1fr) }
+  .random-inner{ gap:10px }
+  .random-logo{ width:120px; height:56px }
+  .hot-badge{ display:none }
+}
+</style>
 </head>
 <body>
 
-  <header>👗 Fashion Deals Hub</header>
-  <div class="sub">h <code>i/</code>)</div>
+<div class="header-wrap">
+  <div class="header-title">👗 Fashion Deals & Coupons</div>
+  <div class="header-sub">All top fashion & lifestyle brands — curated hot deals</div>
+</div>
 
-  <div class="grid-wrap">
-    <table>
-      <colgroup>
-  <col style="width:50%">
-  <col style="width:50%">
-</colgroup>
+<!-- Random multi-logo banner (shows multiple logos at once) -->
+<div id="randomBanner" class="random-banner" aria-live="polite" aria-atomic="true" title="Spotlight brands">
+  <div class="random-inner" id="randomInner" role="img" aria-label="Featured brand logos"></div>
+  <!-- Play/pause removed as requested -->
+</div>
 
-        
-      <!-- Row 1 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/2axQ2d2" target="_blank" rel="noopener">
-            <img class="logo" src="logos/amazon.png" alt="AMAZON">
-            <div class="name">AMAZON (Get Upto 80% Off Across Categories)</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://fktr.in/P1OILdG" target="_blank" rel="noopener">
-            <img class="logo" src="logos/flipkart.png" alt="FLIPKART">
-            <div class="name">FLIPKART (Get Upto 85% Off Across Categories)</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 2 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/ZMA7s0a" target="_blank" rel="noopener">
-            <img class="logo" src="logos/tatacliq.webp" alt="TATA CLIQ">
-            <div class="name">TATA CLIQ (Get Upto 60% Off Across Categories)</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/B25s7vs" target="_blank" rel="noopener">
-            <img class="logo" src="logos/jiomart.png" alt="JIOMART">
-            <div class="name">JIOMART (CHRISTMAS CARNIVAL IS LIVE! Get Flat 20% Off (Upto Rs 50 Off) on Orders over Rs 149 Using Code: STYLE20)</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 3 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://myntr.it/5bUx4St" target="_blank" rel="noopener">
-            <img class="logo" src="logos/myntra.png" alt="MYNTRA">
-            <div class="name">MYNTRA (Get 50-90% Off Across Top Brands)</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://ajiio.in/kiJlaGJ" target="_blank" rel="noopener">
-            <img class="logo" src="logos/ajio.png" alt="AJIO">
-            <div class="name">AJIO</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 4 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/uonA21W" target="_blank" rel="noopener">
-            <img class="logo" src="logos/buykaro.png" alt="BUYKARO">
-            <div class="name">BUYKARO</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/EH2rd8D" target="_blank" rel="noopener">
-            <img class="logo" src="logos/shopclues.png" alt="SHOPCLUES">
-            <div class="name">SHOPCLUES</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 5 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/gB2j4oo" target="_blank" rel="noopener">
-            <img class="logo" src="logos/zop.webp" alt="ZOP">
-            <div class="name">ZOP</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/yLXaePy" target="_blank" rel="noopener">
-            <img class="logo" src="logos/nike.png" alt="NIKE">
-            <div class="name">NIKE</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 6 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/i6btv73" target="_blank" rel="noopener">
-            <img class="logo" src="logos/evok.png" alt="EVOK">
-            <div class="name">EVOK</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/9yH3cls" target="_blank" rel="noopener">
-            <img class="logo" src="logos/puma.png" alt="PUMA">
-            <div class="name">PUMA</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 7 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/0E6gHsI" target="_blank" rel="noopener">
-            <img class="logo" src="logos/uniqlo.png" alt="UNIQLO">
-            <div class="name">UNIQLO</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/oukDvzn" target="_blank" rel="noopener">
-            <img class="logo" src="logos/ceazur.png" alt="CEAZUR">
-            <div class="name">CEAZUR</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 8 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/n7Qvvp3" target="_blank" rel="noopener">
-            <img class="logo" src="logos/ajiogram.png" alt="AJIOGRAM">
-            <div class="name">AJIOGRAM</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/I84P3at" target="_blank" rel="noopener">
-            <img class="logo" src="logos/mokobara.png" alt="MOCOBARA">
-            <div class="name">MOCOBARA</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 9 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/D5iDfPC" target="_blank" rel="noopener">
-            <img class="logo" src="logos/firstcry.png" alt="FIRSTCRY">
-            <div class="name">FIRSTCRY</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/FM805MA" target="_blank" rel="noopener">
-            <img class="logo" src="logos/xyxx.png" alt="XYXX">
-            <div class="name">XYXX</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 10 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/Cpl08S4" target="_blank" rel="noopener">
-            <img class="logo" src="logos/shyaway.png" alt="SHYAWAY">
-            <div class="name">SHYAWAY</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/ojwWf7b" target="_blank" rel="noopener">
-            <img class="logo" src="logos/sonata.png" alt="SONATA">
-            <div class="name">SONATA</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 11 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/SBKyYRe" target="_blank" rel="noopener">
-            <img class="logo" src="logos/fastrack.png" alt="FASTRACK">
-            <div class="name">FASTRACK</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/6Tu19r0" target="_blank" rel="noopener">
-            <img class="logo" src="logos/tiaraa.png" alt="TIARAA">
-            <div class="name">TIARAA</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 12 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/PJ1jRbL" target="_blank" rel="noopener">
-            <img class="logo" src="logos/timex.png" alt="TIMEX">
-            <div class="name">TIMEX</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/9Ush0FT" target="_blank" rel="noopener">
-            <img class="logo" src="logos/xylife.png" alt="XYLIFE">
-            <div class="name">XYLIFE</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 13 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/cHznG4e" target="_blank" rel="noopener">
-            <img class="logo" src="logos/clovia.png" alt="CLOVIA">
-            <div class="name">CLOVIA</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/fwmZuKk" target="_blank" rel="noopener">
-            <img class="logo" src="logos/house-of-koala.png" alt="HOUSE OF KOALA">
-            <div class="name">HOUSE OF KOALA</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 14 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/Zb35bQh" target="_blank" rel="noopener">
-            <img class="logo" src="logos/biba.png" alt="BIBA">
-            <div class="name">BIBA</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/OpHbnVV" target="_blank" rel="noopener">
-            <img class="logo" src="logos/oyela.png" alt="OYELA">
-            <div class="name">OYELA</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 15 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/drYXog0" target="_blank" rel="noopener">
-            <img class="logo" src="logos/salty.png" alt="SALTY">
-            <div class="name">SALTY</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/8CFt62f" target="_blank" rel="noopener">
-            <img class="logo" src="logos/bagline.png" alt="BAGLINE">
-            <div class="name">BAGLINE</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 16 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/ZkjqXO7" target="_blank" rel="noopener">
-            <img class="logo" src="logos/blackberrys-store.png" alt="BLACKBERRY'S STORE">
-            <div class="name">BLACKBERRY'S STORE</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/cgcmSio" target="_blank" rel="noopener">
-            <img class="logo" src="logos/goeye.png" alt="GOEYE">
-            <div class="name">GOEYE</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 17 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/jyfpqkO" target="_blank" rel="noopener">
-            <img class="logo" src="logos/tlc.png" alt="THE LUXURY CLOSET">
-            <div class="name">THE LUXURY CLOSET</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/6Lsqb8n" target="_blank" rel="noopener">
-            <img class="logo" src="logos/bummer.png" alt="BUMMER">
-            <div class="name">BUMMER</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 18 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/AuQ19Rd" target="_blank" rel="noopener">
-            <img class="logo" src="logos/loophoop.png" alt="LOOPHOOP">
-            <div class="name">LOOPHOOP</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/mzz3NRz" target="_blank" rel="noopener">
-            <img class="logo" src="logos/interwove.png" alt="INTERWOVE">
-            <div class="name">INTERWOVE</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 19 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/etkdkCB" target="_blank" rel="noopener">
-            <img class="logo" src="logos/libas.png" alt="LIBAS">
-            <div class="name">LIBAS</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/8dWYuvW" target="_blank" rel="noopener">
-            <img class="logo" src="logos/voyagestore.png" alt="VOYAGE STORE">
-            <div class="name">VOYAGE STORE</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 20 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/i33Omts" target="_blank" rel="noopener">
-            <img class="logo" src="logos/soulively.png" alt="SOULIVELY">
-            <div class="name">SOULIVELY</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/coRH9Re" target="_blank" rel="noopener">
-            <img class="logo" src="logos/neemans.png" alt="NEEMAN'S">
-            <div class="name">NEEMAN'S</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 21 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/OYuKan6" target="_blank" rel="noopener">
-            <img class="logo" src="logos/bewakoof.png" alt="BEWAKOOF.COM">
-            <div class="name">BEWAKOOF.COM</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/rQUwjKF" target="_blank" rel="noopener">
-            <img class="logo" src="logos/wanderlooms.png" alt="WANDERLOOMS">
-            <div class="name">WANDERLOOMS</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 22 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/3cV3So3" target="_blank" rel="noopener">
-            <img class="logo" src="logos/rigo.png" alt="RIGO">
-            <div class="name">RIGO</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/UvtjvsH" target="_blank" rel="noopener">
-            <img class="logo" src="logos/strch.png" alt="STRCH">
-            <div class="name">STRCH</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 23 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/mH07xjk" target="_blank" rel="noopener">
-            <img class="logo" src="logos/converse.png" alt="CONVERSE">
-            <div class="name">CONVERSE</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/eTfTe5S" target="_blank" rel="noopener">
-            <img class="logo" src="logos/decathalon.png" alt="DECATHALON">
-            <div class="name">DECATHALON</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 24 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/NA4Com7" target="_blank" rel="noopener">
-            <img class="logo" src="logos/shein.png" alt="SHEIN">
-            <div class="name">SHEIN</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://bitli.in/a5SKBTV" target="_blank" rel="noopener">
-            <img class="logo" src="logos/beyoung.png" alt="BEYOUNG">
-            <div class="name">BEYOUNG</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 25 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://bitli.in/gwhnuVY" target="_blank" rel="noopener">
-            <img class="logo" src="logos/kimti.png" alt="KIMTI">
-            <div class="name">KIMTI</div>
-          </a>
-        </td>
-        <td>
-          <div style="opacity:.6;font-size:13px">—</div>
-        </td>
-      </tr>
-
-      <!-- Separator / Second batch header -->
-      <tr>
-        <td colspan="2" style="text-align:center;background:linear-gradient(90deg,#fff,#fff);box-shadow:none;padding:6px 0;">
-          <div style="font-weight:800;color:#4b2b7f">More Fashion Deals & Marketplaces</div>
-        </td>
-      </tr>
-
-      <!-- Row 26 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://msho.in/iQgiov" target="_blank" rel="noopener">
-            <img class="logo" src="logos/Meesho.webp" alt="MEESHO">
-            <div class="name">MEESHO</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/7xG9TO" target="_blank" rel="noopener">
-            <img class="logo" src="logos/savana.webp" alt="SAVANA">
-            <div class="name">SAVANA</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 27 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/vhy649" target="_blank" rel="noopener">
-            <img class="logo" src="logos/shopsy.webp" alt="SHOPSY">
-            <div class="name">SHOPSY</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/89V0Yd" target="_blank" rel="noopener">
-            <img class="logo" src="logos/Reliance-Digital.webp" alt="RELIANCE DIGITAL">
-            <div class="name">RELIANCE DIGITAL</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 28 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/qMWCXp" target="_blank" rel="noopener">
-            <img class="logo" src="logos/Adidas.webp" alt="ADIDAS">
-            <div class="name">ADIDAS</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/6I15Bs" target="_blank" rel="noopener">
-            <img class="logo" src="logos/nykaa-fashion.png" alt="NYKAA FASHION">
-            <div class="name">NYKAA FASHION</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 29 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/FZTSxW" target="_blank" rel="noopener">
-            <img class="logo" src="logos/Tanishq.webp" alt="TANISHQ">
-            <div class="name">TANISHQ</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/jMHoxs" target="_blank" rel="noopener">
-            <img class="logo" src="logos/titanplus.webp" alt="TITAN EYEPLUS">
-            <div class="name">TITAN EYEPLUS</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 30 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/BBpcaJ" target="_blank" rel="noopener">
-            <img class="logo" src="logos/TITANSKIN.webp" alt="TITAN SKIN">
-            <div class="name">TITAN SKIN</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/5Qae8I" target="_blank" rel="noopener">
-            <img class="logo" src="logos/xyxx.png" alt="XYXX 2">
-            <div class="name">XYXX 2</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 31 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/H7r8vQ" target="_blank" rel="noopener">
-            <img class="logo" src="logos/the-urban-nest.webp" alt="THE URBAN NESTCO">
-            <div class="name">THE URBAN NESTCO</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/Rr4KEF" target="_blank" rel="noopener">
-            <img class="logo" src="logos/logos/KHADI NATURAL.webp" alt="KHADI NATURAL">
-            <div class="name">KHADI NATURAL</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 32 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/bd9wWQ" target="_blank" rel="noopener">
-            <img class="logo" src="logos/swissbeauty.png" alt="SWISS BEAUTY">
-            <div class="name">SWISS BEAUTY</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/XiDHTS" target="_blank" rel="noopener">
-            <img class="logo" src="logos/Forest-Essentials.webp" alt="FOREST ESSENTIALS">
-            <div class="name">FOREST ESSENTIALS</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 33 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/9PpTg9" target="_blank" rel="noopener">
-            <img class="logo" src="logos/Levis.webp" alt="LEVIS">
-            <div class="name">LEVIS</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/SwglGS" target="_blank" rel="noopener">
-            <img class="logo" src="logos/The-Bear-House.webp" alt="THE BEAR HOUSE">
-            <div class="name">THE BEAR HOUSE</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 34 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/8pJ8cp" target="_blank" rel="noopener">
-            <img class="logo" src="logos/daniel-wellington.webp" alt="DANIEL WELLINGTON">
-            <div class="name">DANIEL WELLINGTON</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/GmpB0d" target="_blank" rel="noopener">
-            <img class="logo" src="logos/Pepperfry.webp" alt="PEPPERFRY">
-            <div class="name">PEPPERFRY</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 35 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/gdzDvS" target="_blank" rel="noopener">
-            <img class="logo" src="logos/fnp.png" alt="FNP">
-            <div class="name">FNP</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/pda4KL" target="_blank" rel="noopener">
-            <img class="logo" src="logos/igp.webp" alt="IGP">
-            <div class="name">IGP</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 36 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/18gsiy" target="_blank" rel="noopener">
-            <img class="logo" src="logos/aramya.webp" alt="ARAMYA">
-            <div class="name">ARAMYA</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/rY9IeN" target="_blank" rel="noopener">
-            <img class="logo" src="logos/PALMONAS.webp" alt="PALMONAS">
-            <div class="name">PALMONAS</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 37 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/NiXY14" target="_blank" rel="noopener">
-            <img class="logo" src="logos/libas.png" alt="LIBAS 2">
-            <div class="name">LIBAS 2</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/eDD0lA" target="_blank" rel="noopener">
-            <img class="logo" src="logos/LOOP EARPLUGS.webp" alt="LOOP EARPLUGS">
-            <div class="name">LOOP EARPLUGS</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 38 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/YgO2Yv" target="_blank" rel="noopener">
-            <img class="logo" src="logos/bummer.png" alt="BUMMER 2">
-            <div class="name">BUMMER 2</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/UOtxam" target="_blank" rel="noopener">
-            <img class="logo" src="logos/BONKERS CORNER.png" alt="BONKERS CORNER">
-            <div class="name">BONKERS CORNER</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 39 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/WIrYlP" target="_blank" rel="noopener">
-            <img class="logo" src="logos/pepe-jeans.png" alt="PEPE JEANS">
-            <div class="name">PEPE JEANS</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/wAaebg" target="_blank" rel="noopener">
-            <img class="logo" src="logos/puma.png" alt="PUMA 2">
-            <div class="name">PUMA 2</div>
-          </a>
-        </td>
-      </tr>
-
-      <!-- Row 40 -->
-      <tr>
-        <td>
-          <a class="card-link" href="https://extp.in/QAikHS" target="_blank" rel="noopener">
-            <img class="logo" src="logos/shaye.png" alt="SHAYE">
-            <div class="name">SHAYE</div>
-          </a>
-        </td>
-        <td>
-          <a class="card-link" href="https://extp.in/z8i5Xf" target="_blank" rel="noopener">
-            <img class="logo" src="logos/jaypore.png" alt="JAYPORE">
-            <div class="name">JAYPORE</div>
-          </a>
-        </td>
-      </tr>
-
-    </table>
-
-    <div class="note">j <code>l/</code>l <em>src</em> l</div>
+<div class="controls">
+  <div class="search">
+    <input id="search" placeholder="Search brand…" aria-label="Search brands">
   </div>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button id="showHot" style="background:linear-gradient(90deg,var(--accent),#5b21b6);color:#fff;border:none;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:700">Show Hot</button>
+    <button id="showAll" style="background:#fff;border:1px solid rgba(0,0,0,0.06);padding:10px 12px;border-radius:10px;cursor:pointer">Show All</button>
+  </div>
+</div>
 
-  <footer>
-    Curated fashion deals • 
-  </footer>
+<!-- Featured (static grid of clear logos) -->
+<div class="featured" id="featured" aria-hidden="false"></div>
+
+<div class="grid" id="grid" aria-live="polite"></div>
+
+<!-- Floating CTA -->
+<div class="floating-cta" id="floatingCta" role="button" aria-label="See hot deals">
+  <div style="font-weight:800">🔥 Hot Deals</div>
+  <div class="spark" aria-hidden="true"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
+<script>
+/* Full brands list with logo paths and coupons. Use empty array for no coupons. */
+const brands = [
+  { name:"AMAZON", url:"https://bitli.in/2axQ2d2", logo:"logos/amazon.png", coupons:["AMZ10","DEMO10"], hot:true },
+  { name:"FLIPKART", url:"https://fktr.in/P1OILdG", logo:"logos/flipkart.png", coupons:[], hot:false },
+  { name:"TATA CLIQ", url:"https://bitli.in/ZMA7s0a", logo:"logos/tatacliq.webp", coupons:["TCLIQ20"], hot:true },
+  { name:"JIOMART", url:"https://bitli.in/B25s7vs", logo:"logos/jiomart.png", coupons:[] },
+  { name:"MYNTRA", url:"https://myntr.it/5bUx4St", logo:"logos/myntra.png", coupons:["MYNTRA15"] },
+  { name:"AJIO", url:"https://ajiio.in/kiJlaGJ", logo:"logos/ajio.png", coupons:["AJIO5"] },
+  { name:"BUYKARO", url:"https://bitli.in/uonA21W", logo:"logos/buykaro.png", coupons:[] },
+  { name:"SHOPCLUES", url:"https://bitli.in/EH2rd8D", logo:"logos/shopclues.png", coupons:[] },
+  { name:"ZOP", url:"https://bitli.in/gB2j4oo", logo:"logos/zop.webp", coupons:[] },
+  { name:"NIKE", url:"https://bitli.in/yLXaePy", logo:"logos/nike.png", coupons:["NIKE20"], hot:true },
+  { name:"EVOK", url:"https://bitli.in/i6btv73", logo:"logos/evok.png", coupons:[] },
+  { name:"PUMA", url:"https://bitli.in/9yH3cls", logo:"logos/puma.png", coupons:["PUMA10"] },
+  { name:"UNIQLO", url:"https://bitli.in/0E6gHsI", logo:"logos/uniqlo.png", coupons:[] },
+  { name:"CEAZUR", url:"https://bitli.in/oukDvzn", logo:"logos/ceazur.png", coupons:[] },
+  { name:"AJIOGRAM", url:"https://bitli.in/n7Qvvp3", logo:"logos/ajiogram.png", coupons:[] },
+  { name:"MOCOBARA", url:"https://bitli.in/I84P3at", logo:"logos/mokobara.png", coupons:[] },
+  { name:"FIRSTCRY", url:"https://bitli.in/D5iDfPC", logo:"logos/firstcry.png", coupons:["FIRST5"] },
+  { name:"XYXX", url:"https://bitli.in/FM805MA", logo:"logos/xyxx.png", coupons:[] },
+  { name:"SHYWAY", url:"https://bitli.in/Cpl08S4", logo:"logos/shyaway.png", coupons:[] },
+  { name:"SONATA", url:"https://bitli.in/ojwWf7b", logo:"logos/sonata.png", coupons:[] },
+  { name:"FASTRACK", url:"https://bitli.in/SBKyYRe", logo:"logos/fastrack.png", coupons:[] },
+  { name:"TIARAA", url:"https://bitli.in/6Tu19r0", logo:"logos/tiaraa.png", coupons:[] },
+  { name:"TIMEX", url:"https://bitli.in/PJ1jRbL", logo:"logos/timex.png", coupons:[] },
+  { name:"XXLIFE", url:"https://bitli.in/9Ush0FT", logo:"logos/xylife.png", coupons:[] },
+  { name:"CLOVIA", url:"https://bitli.in/cHznG4e", logo:"logos/clovia.png", coupons:[] },
+  { name:"HOUSE OF COALA", url:"https://bitli.in/fwmZuKk", logo:"logos/house-of-koala.png", coupons:[] },
+  { name:"BIBA", url:"https://bitli.in/Zb35bQh", logo:"logos/biba.png", coupons:[] },
+  { name:"OYELA", url:"https://bitli.in/OpHbnVV", logo:"logos/oyela.png", coupons:[] },
+  { name:"SALTY", url:"https://bitli.in/drYXog0", logo:"logos/salty.png", coupons:[] },
+  { name:"BAGLINE", url:"https://bitli.in/8CFt62f", logo:"logos/bagline.png", coupons:[] },
+  { name:"BLACKBERRY'S STORE", url:"https://bitli.in/ZkjqXO7", logo:"logos/blackberrys-store.png", coupons:[] },
+  { name:"GOEYE", url:"https://bitli.in/cgcmSio", logo:"logos/goeye.png", coupons:[] },
+  { name:"THE LUXURY CLOSET", url:"https://bitli.in/jyfpqkO", logo:"logos/tlc.png", coupons:[] },
+  { name:"BUMMER", url:"https://bitli.in/6Lsqb8n", logo:"logos/bummer.png", coupons:[] },
+  { name:"LOOPHOOP", url:"https://bitli.in/AuQ19Rd", logo:"logos/loophoop.png", coupons:[] },
+  { name:"INTERWOVE", url:"https://bitli.in/mzz3NRz", logo:"logos/interwove.png", coupons:[] },
+  { name:"LIBAS", url:"https://bitli.in/etkdkCB", logo:"logos/libas.png", coupons:[] },
+  { name:"VOYAGE STORE", url:"https://bitli.in/8dWYuvW", logo:"logos/voyagestore.png", coupons:[] },
+  { name:"SOULIVELY", url:"https://bitli.in/i33Omts", logo:"logos/soulively.png", coupons:[] },
+  { name:"NEEMAN'S", url:"https://bitli.in/coRH9Re", logo:"logos/neemans.png", coupons:[] },
+  { name:"BEWAKOOF.COM", url:"https://bitli.in/OYuKan6", logo:"logos/bewakoof.png", coupons:[] },
+  { name:"WANDERLOOMS", url:"https://bitli.in/rQUwjKF", logo:"logos/wanderlooms.png", coupons:[] },
+  { name:"RIGO", url:"https://bitli.in/3cV3So3", logo:"logos/rigo.png", coupons:[] },
+  { name:"STRCH", url:"https://bitli.in/UvtjvsH", logo:"logos/strch.png", coupons:[] },
+  { name:"CONVERSE", url:"https://bitli.in/mH07xjk", logo:"logos/converse.png", coupons:[] },
+  { name:"DECATHLON", url:"https://bitli.in/eTfTe5S", logo:"logos/decathalon.png", coupons:[] },
+  { name:"SHEIN", url:"https://bitli.in/NA4Com7", logo:"logos/shein.png", coupons:[] },
+  { name:"BEYOUNG", url:"https://bitli.in/a5SKBTV", logo:"logos/beyoung.png", coupons:[] },
+  { name:"KIMTI", url:"https://bitli.in/gwhnuVY", logo:"logos/kimti.png", coupons:[] },
+
+  /* second block */
+  { name:"MEESHO", url:"https://msho.in/iQgiov", logo:"logos/Meesho.webp", coupons:[] },
+  { name:"SAVANA", url:"https://extp.in/7xG9TO", logo:"logos/savana.webp", coupons:[] },
+  { name:"SHOPSY", url:"https://extp.in/vhy649", logo:"logos/shopsy.webp", coupons:[] },
+  { name:"RELIANCE DIGITAL", url:"https://extp.in/89V0Yd", logo:"logos/Reliance-Digital.webp", coupons:[] },
+  { name:"ADIDAS", url:"https://extp.in/qMWCXp", logo:"logos/Adidas.webp", coupons:[] },
+  { name:"NYKAA FASHION", url:"https://extp.in/6I15Bs", logo:"logos/nykaa-fashion.png", coupons:[] },
+  { name:"TANISHQ", url:"https://extp.in/FZTSxW", logo:"logos/Tanishq.webp", coupons:[] },
+  { name:"TITAN EYEPLUS", url:"https://extp.in/jMHoxs", logo:"logos/titanplus.webp", coupons:[] },
+  { name:"TITAN SKIN", url:"https://extp.in/BBpcaJ", logo:"logos/TITANSKIN.webp", coupons:[] },
+  { name:"XYXX 2", url:"https://extp.in/5Qae8I", logo:"logos/xyxx.png", coupons:[] },
+  { name:"KHADI NATURAL", url:"https://extp.in/Rr4KEF", logo:"logos/logos/KHADI NATURAL.webp", coupons:[] },
+  { name:"SWISS BEAUTY", url:"https://extp.in/bd9wWQ", logo:"logos/swissbeauty.png", coupons:[] },
+  { name:"LEVIS", url:"https://extp.in/9PpTg9", logo:"logos/Levis.webp", coupons:[] },
+  { name:"THE BEAR HOUSE", url:"https://extp.in/SwglGS", logo:"logos/The-Bear-House.webp", coupons:[] },
+  { name:"DANIEL WELLINGTON", url:"https://extp.in/8pJ8cp", logo:"logos/daniel-wellington.webp", coupons:[] },
+  { name:"PEPPERFRY", url:"https://extp.in/GmpB0d", logo:"logos/Pepperfry.webp", coupons:[] },
+  { name:"FNP", url:"https://extp.in/gdzDvS", logo:"logos/fnp.png", coupons:[] },
+  { name:"IGP", url:"https://extp.in/pda4KL", logo:"logos/igp.webp", coupons:[] },
+  { name:"ARAMYA", url:"https://extp.in/18gsiy", logo:"logos/aramya.webp", coupons:[] },
+  { name:"PALMONAS", url:"https://extp.in/rY9IeN", logo:"logos/PALMONAS.webp", coupons:[] },
+  { name:"LIBAS 2", url:"https://extp.in/NiXY14", logo:"logos/libas.png", coupons:[] },
+  { name:"LOOP EARPLUGS", url:"https://extp.in/eDD0lA", logo:"logos/LOOP EARPLUGS.webp", coupons:[] },
+  { name:"BUMMER 2", url:"https://extp.in/YgO2Yv", logo:"logos/bummer.png", coupons:[] },
+  { name:"BONKERS CORNER", url:"https://extp.in/UOtxam", logo:"logos/BONKERS CORNER.png", coupons:[] },
+  { name:"PEPE JEANS", url:"https://extp.in/WIrYlP", logo:"logos/pepe-jeans.png", coupons:[] },
+  { name:"PUMA 2", url:"https://extp.in/wAaebg", logo:"logos/puma.png", coupons:[] },
+  { name:"SHAYE", url:"https://extp.in/QAikHS", logo:"logos/shaye.png", coupons:[] },
+  { name:"JAYPORE", url:"https://extp.in/z8i5Xf", logo:"logos/jaypore.png", coupons:[] },
+  { name:"FOREST ESSENTIALS", url:"https://extp.in/XiDHTS", logo:"logos/Forest-Essentials.webp", coupons:[] },
+  { name:"THE URBAN NESTCO", url:"https://extp.in/H7r8vQ", logo:"logos/the-urban-nest.webp", coupons:[] }
+];
+
+const FALLBACK = 'logos/fallback.png';
+
+/* Render grid and featured */
+const grid = document.getElementById('grid');
+const featuredEl = document.getElementById('featured');
+
+function renderGrid(list){
+  grid.innerHTML = '';
+  list.forEach(b => {
+    const coupons = Array.isArray(b.coupons) ? b.coupons : [];
+    const hasCoupons = coupons.length > 0;
+    const couponsHtml = hasCoupons
+      ? coupons.slice(0,3).map((c,i)=>`<button class="coupon-btn" data-code="${c}" ${i===0? 'aria-pressed="true"':''}>${c}</button>`).join('')
+      : `<span class="no-coupon">No coupons available</span>`;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    if (b.hot) {
+      const r = document.createElement('div');
+      r.className = 'ribbon';
+      r.textContent = 'HOT';
+      card.appendChild(r);
+    }
+    card.setAttribute('data-name', b.name.toLowerCase());
+    card.innerHTML += `
+      <a href="${b.url}" target="_blank" rel="noopener noreferrer" data-brand="${b.name}">
+        <img class="logo" src="${b.logo}" alt="${b.name} logo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${FALLBACK}'">
+        <div class="name">${b.name}</div>
+        <div class="info">Latest fashion deals & offers</div>
+      </a>
+      <div class="coupon-box">
+        ${couponsHtml}
+        <button class="copy primary-copy" ${hasCoupons ? `data-default="${coupons[0]}"` : 'disabled aria-disabled="true"'}>${hasCoupons ? 'Copy' : 'No code'}</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderFeatured(){
+  featuredEl.innerHTML = '';
+  const featured = brands.filter(b=>b.hot).slice(0,8);
+  const list = featured.length ? featured : brands.slice(0,8);
+  list.forEach((b, idx)=>{
+    const el = document.createElement('div');
+    el.className = 'featured-card';
+    el.style.animationDelay = (idx * 80) + 'ms';
+    el.innerHTML = `
+      <img class="logo" src="${b.logo}" alt="${b.name} logo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${FALLBACK}'">
+    `;
+    featuredEl.appendChild(el);
+  });
+}
+
+/* initial render */
+renderGrid(brands);
+renderFeatured();
+
+/* Random multi-logo banner logic (show 4 logos at once) */
+(function(){
+  const banner = document.getElementById('randomBanner');
+  const inner = document.getElementById('randomInner');
+
+  // Build list of logos (prefer hot brands more often)
+  const hotLogos = brands.filter(b=>b.hot && b.logo).map(b=>b.logo);
+  const otherLogos = brands.filter(b=>!b.hot && b.logo).map(b=>b.logo);
+  // Weighted pool: hot logos appear more frequently
+  const pool = [];
+  hotLogos.forEach(l => { pool.push(l); pool.push(l); pool.push(l); }); // triple weight
+  otherLogos.forEach(l => pool.push(l));
+
+  // Preload images
+  pool.forEach(src => {
+    const img = new Image();
+    img.src = src;
+    img.decoding = 'async';
+    img.loading = 'lazy';
+    img.onerror = () => { img.src = FALLBACK; };
+  });
+
+  const VISIBLE_MS = 3200;
+  const FADE_MS = 450;
+  const GROUP_SIZE = 4; // show 4 logos at once
+  let paused = false;
+  let timer = null;
+
+  function pickRandomGroup(){
+    const out = [];
+    const poolCopy = pool.slice();
+    for (let i=0;i<Math.min(GROUP_SIZE,poolCopy.length);i++){
+      const idx = Math.floor(Math.random()*poolCopy.length);
+      out.push(poolCopy.splice(idx,1)[0]);
+    }
+    return out;
+  }
+
+  function showGroup(){
+    if (!inner) return;
+    inner.innerHTML = '';
+    const group = pickRandomGroup();
+    group.forEach((src, idx) => {
+      const img = document.createElement('img');
+      img.className = 'random-logo';
+      img.src = src;
+      img.alt = 'Brand logo';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.onerror = function(){ this.onerror=null; this.src = FALLBACK; };
+      inner.appendChild(img);
+      // staggered reveal for nicer effect
+      requestAnimationFrame(()=> setTimeout(()=> img.classList.add('show'), 40 + idx*60));
+    });
+  }
+
+  function start(){
+    showGroup();
+    if (timer) clearInterval(timer);
+    timer = setInterval(()=>{
+      if (paused) return;
+      // fade out current
+      const cur = inner.querySelectorAll('.random-logo.show');
+      cur.forEach(img => img.classList.remove('show'));
+      setTimeout(()=> {
+        if (!paused) showGroup();
+      }, FADE_MS + 30);
+    }, VISIBLE_MS + FADE_MS + 120);
+  }
+
+  // Pause rotation while user hovers the banner to let them read logos
+  banner.addEventListener('mouseenter', ()=> { paused = true; });
+  banner.addEventListener('mouseleave', ()=> { paused = false; });
+  banner.addEventListener('focusin', ()=> { paused = true; });
+  banner.addEventListener('focusout', ()=> { paused = false; });
+
+  start();
+})();
+
+/* Search filter */
+document.getElementById('search').addEventListener('input', e=>{
+  const v = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(c=>{
+    const name = c.dataset.name || '';
+    c.style.display = name.includes(v) ? 'flex' : 'none';
+  });
+});
+
+/* Show hot / show all */
+document.getElementById('showHot').addEventListener('click', ()=>{
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display = c.querySelector('.ribbon') ? 'flex' : 'none';
+  });
+});
+document.getElementById('showAll').addEventListener('click', ()=>{
+  document.querySelectorAll('.card').forEach(c=> c.style.display = 'flex');
+});
+
+/* Floating CTA scroll to first hot */
+document.getElementById('floatingCta').addEventListener('click', ()=>{
+  const firstHot = document.querySelector('.card .ribbon') ? document.querySelector('.card .ribbon').closest('.card') : document.querySelector('.card');
+  if (firstHot) firstHot.scrollIntoView({ behavior:'smooth', block:'center' });
+});
+
+/* Event delegation for coupon selection and copy with ripple */
+document.addEventListener('click', e=>{
+  if (e.target.matches('.coupon-btn')){
+    const btn = e.target;
+    const box = btn.closest('.coupon-box');
+    if (!box) return;
+    box.querySelectorAll('.coupon-btn').forEach(b=> {
+      b.classList.remove('selected');
+      b.setAttribute('aria-pressed','false');
+    });
+    btn.classList.add('selected');
+    btn.setAttribute('aria-pressed','true');
+    const copyBtn = box.querySelector('.primary-copy');
+    if (copyBtn) copyBtn.dataset.default = btn.dataset.code;
+    return;
+  }
+
+  if (e.target.matches('.primary-copy')){
+    const copyBtn = e.target;
+    if (copyBtn.disabled) return;
+    const code = copyBtn.dataset.default;
+    if (!code) return;
+
+    // ripple
+    const rect = copyBtn.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = ((e.clientX || rect.left + rect.width/2) - rect.left - size/2) + 'px';
+    ripple.style.top = ((e.clientY || rect.top + rect.height/2) - rect.top - size/2) + 'px';
+    copyBtn.appendChild(ripple);
+    setTimeout(()=> ripple.remove(), 700);
+
+    navigator.clipboard.writeText(code).then(()=>{
+      showToast('Coupon copied: ' + code);
+      if (window.gtag) gtag('event','coupon_copy',{ event_category:'Fashion', event_label: code });
+    }).catch(()=>{
+      showToast('Unable to copy. Please copy manually: ' + code);
+    });
+    return;
+  }
+
+  const a = e.target.closest && e.target.closest('a');
+  if (a && a.dataset && a.dataset.brand){
+    if (window.gtag){
+      gtag('event','deal_click',{ event_category:'Fashion', event_label: a.dataset.brand });
+    }
+  }
+});
+
+/* toast helper */
+function showToast(msg, ms=1500){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._hideTimer);
+  t._hideTimer = setTimeout(()=> t.classList.remove('show'), ms);
+}
+
+/* keyboard accessibility */
+document.addEventListener('keydown', e=>{
+  if (e.key === 'Enter' || e.key === ' '){
+    const el = document.activeElement;
+    if (el && el.classList && el.classList.contains('coupon-btn')){
+      el.click();
+      e.preventDefault();
+    }
+    if (el && el.classList && el.classList.contains('primary-copy')){
+      el.click();
+      e.preventDefault();
+    }
+  }
+});
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
